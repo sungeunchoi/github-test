@@ -1,0 +1,11 @@
+#!/bin/sh
+CHECKPATCH=~/local/bin/checkpatch.pl
+
+git diff --cached HEAD | $CHECKPATCH --no-tree --no-signoff --summary-file -q -
+
+if [ $? != 0 ]; then
+    echo "Coding style checked failed.  Please fix warnings and errors and try commiting again."
+    exit -1
+fi
+
+exit 0
