@@ -6,7 +6,7 @@
 
 CHECKPATCH=~/local/bin/checkpatch.pl
 
-git diff --cached HEAD | $CHECKPATCH --no-tree --no-signoff --summary-file -q --ignore FILE_PATH_CHANGES -
+git diff --cached HEAD | $CHECKPATCH --no-tree --no-signoff --summary-file -q --ignore FILE_PATH_CHANGES,NEW_TYPEDEFS -
 
 if [ $? != 0 ]; then
     echo "Coding style checked failed.  Please fix warnings and errors and try commiting again."
